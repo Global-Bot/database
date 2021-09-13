@@ -1,1 +1,3 @@
-database
+@global-bot/database
+
+Global - DataBase
