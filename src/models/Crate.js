@@ -27,8 +27,6 @@ function crateSchema(db) {
             allowNull: false,
             validate: {
                 async validate(value) {
-                    console.log('value2', value)
-
                     for (const _item of value) {
                         if (!_item?.id || !_item?.quantity || !_item?.type) {
                             throw new Error('Item is missing a property, needs "id", "quantity" & "type"');
