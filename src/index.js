@@ -11,6 +11,7 @@ class DataBase {
         
         this.logger = options.logger || console;
         this._models = {};
+        this._options = options;
         
         this.logger.info('Connecting to Global database...');
         
@@ -56,7 +57,7 @@ class DataBase {
     }
 
     registerModel({ name, schema, doNotSync }) {
-        const model = this.sequelize.define(name, schema);
+        const model = this.sequelize.define(name, typeof schema == 'function' ? schema(this) : schema);
         if (doNotSync != true) {
             model.sync();
         }
