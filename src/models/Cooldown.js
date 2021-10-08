@@ -1,7 +1,8 @@
 const { DataTypes } = require('sequelize');
 
 const cooldownSchema = {
-    id:            { type: DataTypes.STRING, notNull: true, primaryKey: true },
+    num:           { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    id:            { type: DataTypes.STRING, notNull: true },
     type:          { type: DataTypes.STRING, notNull: true },
     expire:        { type: DataTypes.BIGINT, notNull: true }
 };
