@@ -70,6 +70,15 @@ function crateSchema(db) {
                     }
                 }
             }
+        },
+        price: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                max: Number.MAX_SAFE_INTEGER,
+                min: 0,
+                isNumeric: true,
+            }
         }
     }
 }
