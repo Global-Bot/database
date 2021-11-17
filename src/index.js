@@ -56,8 +56,8 @@ class DataBase {
         return this._sequelize;
     }
 
-    registerModel({ name, schema, doNotSync }) {
-        const model = this.sequelize.define(name, typeof schema == 'function' ? schema(this) : schema);
+    registerModel({ name, schema, hooks = {}, doNotSync }) {
+        const model = this.sequelize.define(name, typeof schema == 'function' ? schema(this) : schema, { hooks });
         if (doNotSync != true) {
             model.sync();
         }
