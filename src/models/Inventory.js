@@ -42,5 +42,23 @@ function inventorySchema(db) {
     };
 }
 
+function inventoryHooks(db) {
+    async function beforeCreate(instance) {
+        const { name, type } = instance;
 
-module.exports = { name: 'inventory', schema: inventorySchema }
+        const model = db.models[type];
+        if (!model) throw new Error(`Unable to find model from item type "${type}"`);
+
+        const existingItem = await model.findOne({ where: { id: name } });
+        if (!existingItem) throw new Error(`Unable to find the ${name} ${type}`);
+    }
+
+    async function beforeBulkUpdate(instance) {
+        return await beforeCreate(instance.where)
+    }
+
+    return { beforeCreate, beforeBulkUpdate };
+}
+
+
+module.exports = { name: 'inventory', schema: inventorySchema, hooks: inventoryHooks }
