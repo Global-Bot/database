@@ -38,6 +38,10 @@ function inventorySchema(db) {
             validate: {
                 isIn: [ itemTypes ],
             }
+        },
+        inUse: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     };
 }

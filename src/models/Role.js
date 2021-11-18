@@ -38,10 +38,6 @@ function roleSchema(db) {
                 min: 0,
                 isNumeric: true,
             }
-        },
-        inUse: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
         }
     }
 }
