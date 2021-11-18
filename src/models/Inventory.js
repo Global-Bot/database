@@ -19,7 +19,7 @@ function inventorySchema(db) {
                 len: [ 15, 25 ]
             }
         },
-        name: {
+        itemID: {
             type: DataTypes.STRING,
             allowNull: false
         },
