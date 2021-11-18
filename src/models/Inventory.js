@@ -49,13 +49,13 @@ function inventorySchema(db) {
 
 function inventoryHooks(db) {
     async function beforeCreate(instance) {
-        const { name, type } = instance;
+        const { itemID, type } = instance;
 
         const model = db.models[type];
         if (!model) throw new Error(`Unable to find model from item type "${type}"`);
 
-        const existingItem = await model.findOne({ where: { id: name } });
-        if (!existingItem) throw new Error(`Unable to find the ${name} ${type}`);
+        const existingItem = await model.findOne({ where: { id: itemID } });
+        if (!existingItem) throw new Error(`Unable to find the ${itemID} ${type}`);
     }
 
     async function beforeBulkUpdate(instance) {
