@@ -18,7 +18,7 @@ const XPSchema = {
     blacklisted: {
         type: DataTypes.BOOLEAN,
         notNull: true,
-        defaultValue: FALSE
+        defaultValue: false
     },
 };
 
