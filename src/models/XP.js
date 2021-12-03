@@ -20,6 +20,11 @@ const XPSchema = {
         notNull: true,
         defaultValue: 0
     },
+    weeklyMessages: {
+        type: DataTypes.BIGINT,
+        notNull: true,
+        defaultValue: 0
+    },
     blacklisted: {
         type: DataTypes.BOOLEAN,
         notNull: true,
