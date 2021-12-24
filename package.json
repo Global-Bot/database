@@ -1,6 +1,6 @@
 {
   "name": "@global-bot/database",
-  "version": "1.8.24",
+  "version": "1.8.25",
   "description": "Global - DataBase",
   "main": "src/index.js",
   "scripts": {
