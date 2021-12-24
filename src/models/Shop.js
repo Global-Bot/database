@@ -22,6 +22,11 @@ function shopSchema(db) {
                 isIn: [ itemTypes ],
             }
         },
+        requiredLevel: {
+            type: DataTypes.BIGINT,
+            notNull: true,
+            defaultValue: 0
+        },
         price: {
             type: DataTypes.INTEGER,
             allowNull: false,
