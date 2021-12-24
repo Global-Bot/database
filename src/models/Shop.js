@@ -26,15 +26,6 @@ function shopSchema(db) {
             type: DataTypes.BIGINT,
             notNull: true,
             defaultValue: 0
-        },
-        price: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                max: Number.MAX_SAFE_INTEGER,
-                min: 0,
-                isNumeric: true,
-            }
         }
     };
 }
